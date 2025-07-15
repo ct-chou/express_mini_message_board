@@ -1,6 +1,6 @@
 const { Router } = require('express');
 
-const messages = require('../data/db'); // Assuming messages is exported from db.js
+const {messages} = require('../data/db'); // Assuming messages is exported from db.js
 const newMessageRouter = Router();
 
 newMessageRouter.get('/', (req, res) => {
@@ -14,6 +14,7 @@ newMessageRouter.post('/', (req, res) => {
     const messageText = req.body.message;
     const userName = req.body.user;
     const newMessage = {
+        id: messages.length, // Simple ID generation
         text: messageText,
         user: userName,
         added: new Date()

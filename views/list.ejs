@@ -1,8 +1,8 @@
 <ul>
     <% messages.forEach(message => { %>
         <li>
-            <strong><%= message.text %></strong> - <%= message.user %>
-            <%= message.added %>
+            <a href="/messages/<%= message.id %>"><strong><%= message.text %></strong></a> - <%= message.user %>
+            <%= message.added %></a>
         </li>
         <% }) %>    
 </ul>
