@@ -1,24 +1,15 @@
 const { Router } = require('express');
+const messages = require('../data/db'); // Assuming messages is exported from db.js
 
 const indexRouter = Router();
 
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date()
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date()
-  }
-];
+
 
 
 indexRouter.get('/', (req, res) => {
 //   res.send('Welcome to the Mini Message Board!');
-    res.render('index', { messages: messages});
+    res.render('index', { title: "Mini Message Board", messages: messages });
 });
+
 
 module.exports = indexRouter;
