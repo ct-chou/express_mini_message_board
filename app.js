@@ -16,6 +16,19 @@ app.use('/', indexRouter);
 app.use('/new', newMessageRouter);
 app.use('/messages', messageRouter); // Use the message router for /messages
 
+app.use((req, res, next) => {
+    res.status(404).render('404', { 
+        title: 'Page Not Found',
+        message: `Sorry, the page ${req.url} doesn't exist.`
+    });
+});
+
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.status(err.statusCode || 500).send(err.message || 'Internal Server Error');
+});
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
