@@ -1,0 +1,11 @@
+{
+  "name": "express_mini_message_board",
+  "version": "1.0.0",
+  "description": "Barebones message board using express",
+  "main": "app.js",
+  "scripts": {
+    "test": "node --watch app.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
